@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Streetwær</h1>
+
+  <div class="rate">
+
+    <div class="stars">
+
+      <div class="clthwrapper">
+        <% for(i=0; i < streetwear.length; i++) { %>
+        <div class="clothe-card">
+          <img src="<%= streetwear[i].img %>" alt="">
+          <%
+            var avg
+            if(streetwear[i].ratings.length === 0) {
+              avg = 0
+            } else {
+              avg = (streetwear[i].ratings.reduce((partial_sum, a) => partial_sum + a))/(streetwear[i].ratings.length)
+            }
+          %>
+          <span>Avg. Rating: <%= avg %></span>
+          <h4>Rate</h4>
+          <span class="star"><i class="far fa-star" aria-hidden="true"></i></span>
+          <span class="star"><i class="far fa-star" aria-hidden="true"></i></span>
+          <span class="star"><i class="far fa-star" aria-hidden="true"></i></span>
+          <span class="star"><i class="far fa-star" aria-hidden="true"></i></span>
+          <span class="star"><i class="far fa-star" aria-hidden="true"></i></span>
+        </div>
+        <% } %>
+      </div>
+
+
+    </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
